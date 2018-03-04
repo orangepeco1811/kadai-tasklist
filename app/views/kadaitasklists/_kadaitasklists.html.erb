@@ -1,0 +1,23 @@
+<ul class="media-list">
+  <% kadaitasklists.each do |kadaitasklist| %>
+    <li class="media">
+      <div class="media-left">
+        <img class="media-object img-rounded" src="<%= gravatar_url(kadaitasklist.user, options = { size: 50 }) %>" alt="">
+      </div>
+      <div class="media-body">
+        <div>
+          <%= link_to kadaitasklist.user.name, user_path(kadaitasklist.user) %> <span class="text-muted">posted at <%= kadaitasklist.created_at %></span>
+        </div>
+        <div>
+          <p><%= kadaitasklist.content %></p>
+        </div>
+        <div>
+          <% if current_user == kadaitasklist.user %>
+            <%= link_to "Delete", kadaitasklist, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate kadaitasklists %>
+</ul
