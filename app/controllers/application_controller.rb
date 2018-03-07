@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   def create
+    @task = Task.new(task_params)
+
   end
 
   def edit
@@ -34,6 +36,6 @@ class ApplicationController < ActionController::Base
   end
 
   def counts(user)
-    @count_kadaitasklists = user.kadaitasklists.count
+    @count_tasks = user.tasks.count
   end
 end

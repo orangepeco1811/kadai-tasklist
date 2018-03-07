@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'kadaitasklists/create'
+  get 'task/create'
 
-  get 'kadaitasklists/destroy'
+  get 'task/destroy'
 
   root to: 'toppages#index'
 
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :show, :new, :create, :update, :destroy]
-  resources :kadaitasklists, only: [:create, :update, :destroy]
+  resources :users
+  resources :tasks
 end
