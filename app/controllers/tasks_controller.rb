@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     if @task.save
       flash[:success] = 'タスクを登録しました。'
-      redirect_to root_url
+      redirect_to tasks_url
     else
       @tasks = current_user.tasks.order('created_at DESC').page(params[:page])
       flash.now[:danger] = 'タスクの登録に失敗しました。'
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash[:success] = 'タスクは正常に更新されました'
-     redirect_to @task
+     redirect_to tasks_url
     else
       flash.now[:danger] = 'タスクは更新されませんでした'
       render :edit
