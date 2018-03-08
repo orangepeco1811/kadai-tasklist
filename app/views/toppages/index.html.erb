@@ -1,5 +1,4 @@
 <% if logged_in? %>
-<form class="form-horizontal">
   <div class="row">
     <aside class="col-md-4">
       <%= form_for(@task) do |f| %>
@@ -13,17 +12,16 @@
         
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
-    </aside>
-    <div class="col-xs-8">
+  　</aside>
+    　<div class="col-xs-8">
       <%= render 'tasks/tasks', tasks: @tasks %>
-    </div>
-  </div>
-<% else %>
-  <div class="center jumbotron">
+   　 </div>
+ 　　 </div>
+　　　<% else %>
+ 　　 <div class="center jumbotron">
     <div class="text-center">
       <h1>Welcome to the tasks</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
-</form>
 <% end %>
